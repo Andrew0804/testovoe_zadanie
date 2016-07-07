@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог</title>
+</head>
+<body>
+
+    {% for item in filter %}
+    <a href="/{{ args_as_string }}{{ item.slug }}">{{ item.name }}</a>
+    {% endfor %}
+    <a href="/">Назад</a>
+
+    <table border="1">
+        <tr><th>Товар</th><th>Цена</th><th>Размер</th><th>Начинка</th><th>Назначение</th><th>Тесто</th><th>Приготовление</th></tr>
+
+        {% for item in goods %}
+        <tr><td>{{ item.name }}</td><td>{{ item.price }} рублей</td><td>{{ item.size }}</td><td>{{ item.stuffing }}</td><td>{{ item.target }}</td><td>{{ item.paste }}</td><td>{{ item.oven }}</td></tr>
+        {% else %}
+        Товары не найдены
+        {% endfor %}
+    </table>
+    Найдено товаров: {{ goods_count }}
+</body>
+</html>
